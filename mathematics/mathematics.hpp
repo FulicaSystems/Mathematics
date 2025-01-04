@@ -1,5 +1,13 @@
 #pragma once
 
+// TODO : find a better way to exclude Windows macros
+#ifdef WIN32
+#undef min
+#undef max
+#undef near
+#undef far
+#endif
+
 //typedef float as vec (float2 becomes vec2)
 #define FLOAT_AS_VEC
 

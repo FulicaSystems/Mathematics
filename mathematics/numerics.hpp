@@ -1,8 +1,6 @@
 #pragma once
 
-//#define STD_INT
 #ifdef STD_INT
-
 #include <cstdint>
 typedef int8_t int8;
 typedef int16_t int16;
@@ -13,7 +11,6 @@ typedef uint8_t uint8;
 typedef uint16_t uint16;
 typedef uint32_t uint32;
 typedef uint64_t uint64;
-
 #else
 
 typedef signed char int8;
@@ -29,3 +26,7 @@ typedef unsigned long long uint64;
 #endif
 
 typedef bool uint1;
+
+#ifdef STD_LIMITS
+#include <limits>
+#endif
