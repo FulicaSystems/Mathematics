@@ -6,13 +6,13 @@ set(CMAKE_CXX_STANDARD 20)
 
 set(PROJECT_NAME Mathematics)
 
-option(BUILD_TESTS "build tests" ON)
+option(MATHEMATICS_BUILD_TESTS "build tests" ON)
 
 # initiating project given its name
 project(${PROJECT_NAME})
 
 add_subdirectory(fumathematics)
 
-if(BUILD_TESTS)
+if(MATHEMATICS_BUILD_TESTS)
     add_subdirectory(test)
 endif()
