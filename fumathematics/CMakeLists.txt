@@ -1,6 +1,7 @@
-set(component mathematics)
+set(component fumathematics)
 
 add_library(${component} INTERFACE "")
+add_library(FuMathematics ALIAS ${component})
 
 set_property(TARGET ${component}
     PROPERTY PUBLIC_HEADER

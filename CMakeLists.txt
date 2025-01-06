@@ -11,7 +11,7 @@ option(BUILD_TESTS "build tests" ON)
 # initiating project given its name
 project(${PROJECT_NAME})
 
-add_subdirectory(mathematics)
+add_subdirectory(fumathematics)
 
 if(BUILD_TESTS)
     add_subdirectory(test)

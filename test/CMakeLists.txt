@@ -8,5 +8,5 @@ target_sources(${component}
 )
 
 target_link_libraries(${component}
-    PUBLIC mathematics
+    PUBLIC FuMathematics
 )
