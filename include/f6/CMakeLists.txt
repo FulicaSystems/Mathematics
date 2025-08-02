@@ -6,11 +6,9 @@ add_library(F6::Math ALIAS ${component})
 
 set_property(TARGET ${component}
     PROPERTY PUBLIC_HEADER
+    
     mathematics.hpp
     mathematics.inl
-
-    mathstream.hpp
-    numerics.hpp
 )
 
 target_include_directories(${component} INTERFACE "${CMAKE_CURRENT_LIST_DIR}")

@@ -8,55 +8,32 @@
 #undef far
 #endif
 
-//typedef float as vec (float2 becomes vec2)
+// typedef float as vec (float2 becomes vec2)
 #define FLOAT_AS_VEC
 
-//pi
-//https://www.angio.net/pi/bigpi.cgi
-
-//precision calculator
-//https://www.mathsisfun.com/calculator-precision.html
-
-//The constant values have a 50 digits precision.
-#if false
-#ifndef M_PI
-#define M_PI 3.14159265358979323846264338327950288419716939937510f
-#endif
-// 2 * pi
-#ifndef M_TAU
-#define M_TAU 6.28318530717958647692528676655900576839433879875021f
-#endif
-// pi / 180
-#ifndef TORAD
-#define TORAD 0.01745329251994329576923690768488612713442871888541f
-#endif
-// 180 / pi
-#ifndef TODEG
-#define TODEG 57.29577951308232087679815481410517033240547246656432f
-#endif
-#endif
-
+#define _USE_MATH_DEFINES
 #include <cmath>
-#include <cfloat>
 
-#include "numerics.hpp"
+#include <cfloat>
 
 namespace Math
 {
+	// precision calculator
+	// https://www.mathsisfun.com/calculator-precision.html
+
 	struct Constant
 	{
-		static inline const double pi = 3.14159265358979323846264338327950288419716939937510;
-		// 2 * pi
-		static inline const double tau = 6.28318530717958647692528676655900576839433879875021;
+		// pi
+		// https://www.angio.net/pi/bigpi.cgi
+		static inline const double pi = M_PI;
+		static inline const double tau = 2 * M_PI;
 		static inline const double e = 2.71828182845904523536028747135266249775724709369995;
 	};
 
 	struct Conversion
 	{
-		// pi / 180
-		static inline const double degrad = 0.01745329251994329576923690768488612713442871888541;
-		// 180 / pi
-		static inline const double raddeg = 57.29577951308232087679815481410517033240547246656432;
+		static inline const double degrad = M_PI / 180.f;
+		static inline const double raddeg = 180.f / M_PI;
 	};
 }
 
@@ -71,13 +48,20 @@ namespace Math
 
 #include "types/quaternion.hpp"
 
-namespace Math
+#include <random>
+
+namespace Random
 {
 	/**
 	 * Return a random float between a and b included.
 	 */
-	inline float randomf(const float a, const float b);
+	inline float crandomf(const float a, const float b);
 
+	// TODO : c++11 <random> handles (rng engines with reset option)
+}
+
+namespace Math
+{
 	/**
 	 * cosine
 	 */
@@ -280,6 +264,18 @@ namespace Math3
 	 * Scale matrix.
 	 */
 	inline mat4 scaleMatrix(const float3& scale);
+
+	/**
+	 * Convert a screen space position to a world space position
+	 * TODO
+	 */
+	inline mat4 screenSpaceToWorldSpace(const mat4& view, const mat4& perspective, const float2& pos, const float depth)
+
+	/**
+	 * Convert a world space position to a screen space position
+	 * TODO
+	 */
+	inline mat4 worldSpaceToScreenSpace(const float3& pos);
 
 	/**
 	 * Rotate a vector3 using quaternion calculation.

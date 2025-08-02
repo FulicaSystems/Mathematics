@@ -1,6 +1,6 @@
 #include "mathematics.hpp"
 
-float Math::randomf(const float a, const float b)
+float Random::crandomf(const float a, const float b)
 {
 	// https://stackoverflow.com/a/686373
 	return a + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (b - a)));
