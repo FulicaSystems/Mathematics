@@ -7,6 +7,9 @@
 
 int main()
 {
+    // TODO : unit testing for basic math functions
+
+    
     // TODO : find a better way for rng (https://stackoverflow.com/a/322995)
     srand(static_cast<unsigned>(time(0)));
 

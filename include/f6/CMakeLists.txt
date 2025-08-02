@@ -6,6 +6,8 @@ add_library(F6::Math ALIAS ${component})
 
 set_property(TARGET ${component}
     PROPERTY PUBLIC_HEADER
+
+    constant.hpp
     
     mathematics.hpp
     mathematics.inl

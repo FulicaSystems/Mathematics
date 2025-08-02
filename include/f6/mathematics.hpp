@@ -16,12 +16,17 @@
 
 #include <cfloat>
 
+#include "constant.hpp"
+
 namespace Math
 {
 	// precision calculator
 	// https://www.mathsisfun.com/calculator-precision.html
 
-	struct Constant
+	// TODO : constant template specialization for the other types
+	
+	template<>
+	struct Constant<double>
 	{
 		// pi
 		// https://www.angio.net/pi/bigpi.cgi
@@ -30,7 +35,8 @@ namespace Math
 		static inline const double e = 2.71828182845904523536028747135266249775724709369995;
 	};
 
-	struct Conversion
+	template<>
+	struct Conversion<double>
 	{
 		static inline const double degrad = M_PI / 180.f;
 		static inline const double raddeg = 180.f / M_PI;
